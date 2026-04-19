@@ -1,0 +1,39 @@
+Структура папок
+C:\CABBAGE
+|   .gitignore
+|   main.spec
+|   run.pyw
+|   Проект_Cabbage.txt
+|   Шпаргалка.txt
+|
++---app
+|   |   main.py
+|   |
+|   +---ui
+|   |   |   instrument_window.py
+|   |   |   parser_tab.py
+|   |   |   table_tab.py
+|   |   |
+|   |   +---widgets
+|   |   |       oi_graph_widget.py
+|   |   |       price_graph_widget.py
+|  
+|
+|
++---data
+|       cabbagedb.db
+|       last_price_update.json
+|       last_run.json
+|       signals.json
+|
++---logs
+|       app.log
+|       parser_moex.log
+|
+\---script
+    |   append_history.py
+    |   instrument_repository.py
+    |   load_table.py
+    |   parser_moex.py
+    |   update_price_history.py
+    |   __init__.py

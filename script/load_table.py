@@ -3,7 +3,7 @@ import sqlite3
 
 DB_PATH = r"C:\cabbage\data\cabbagedb.db"
 
-
+# Загрузка данных из open_interest_record для отображения в таблице
 def load_open_interest():
     conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()

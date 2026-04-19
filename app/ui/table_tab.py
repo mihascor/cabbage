@@ -12,8 +12,9 @@ from PyQt6.QtWidgets import (
 from script.load_table import load_open_interest
 from PyQt6.QtGui import QColor, QFont
 from PyQt6.QtWidgets import QPushButton, QWidget, QHBoxLayout
+from app.ui.instrument_window import InstrumentWindow
 
-
+# Вкладка "Таблица"
 class TableTab(QWidget):
     def __init__(self):
         super().__init__()
@@ -27,6 +28,9 @@ class TableTab(QWidget):
         layout.addWidget(self.table)
 
         self.setLayout(layout)
+
+        # --- хранилище открытых плавающих окон по name ---
+        self.instrument_windows = {}
 
         self.signals_state = self.load_signals_state()
         self.load_data()
@@ -70,6 +74,18 @@ class TableTab(QWidget):
             btn_choice.setStyleSheet("background-color: #797a7a;")
         else:
             btn_choice.setStyleSheet("")
+
+    # --- открытие плавающего окна анализа ---
+    def open_instrument_window(self, name: str):
+        # если окно уже открыто — просто активируем
+        if name in self.instrument_windows:
+            self.instrument_windows[name].activate()
+            return
+
+        # иначе создаём новое и сохраняем ссылку
+        window = InstrumentWindow(name)
+        self.instrument_windows[name] = window
+        window.show()
 
     # -------------------------------
     # Загрузка данных в таблицу
@@ -223,6 +239,11 @@ class TableTab(QWidget):
             analysis_layout.addWidget(btn_analysis)
 
             self.table.setCellWidget(row_idx, analysis_col, analysis_container)
+
+            # --- подключение кнопки к открытию плавающего окна ---
+            btn_analysis.clicked.connect(
+                lambda _, n=name: self.open_instrument_window(n)
+            )
 
 
 

@@ -9,7 +9,7 @@ from script import parser_moex
 
 SETTINGS_FILE = r"C:\cabbage\data\last_run.json"
 
-
+# Поток для запуска парсера, чтобы не блокировать UI
 class ParserWorker(QThread):
     log_signal = pyqtSignal(str)
     finished_signal = pyqtSignal()
@@ -22,7 +22,7 @@ class ParserWorker(QThread):
         finally:
             self.finished_signal.emit()
 
-
+# Вкладка "Парсер"
 class ParserTab(QWidget):
     def __init__(self):
         super().__init__()

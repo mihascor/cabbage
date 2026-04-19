@@ -4,7 +4,7 @@ from datetime import datetime
 
 DB_PATH = r"C:\cabbage\data\cabbagedb.db"
 
-
+# Добавление данных в историю open_interest_history из open_interest_record с UPSERT (вставка или обновление)
 def append_history():
     today = datetime.now().strftime("%Y-%m-%d")
 

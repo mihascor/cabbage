@@ -58,7 +58,7 @@ def set_dark_title_bar(hwnd):
         ctypes.sizeof(value)
     )
 
-
+# --- Главное окно приложения ---
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()

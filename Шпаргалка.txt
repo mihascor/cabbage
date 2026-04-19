@@ -8,6 +8,12 @@ cd C:\cabbage
 cd C:\cabbage\db\cabbagedb.db
 cd C:\cabbage\script
 
+/// GitHab
+cd C:\cabbage
+git add .
+git commit -m "Убрать лишнее"
+git push
+
 /// Парсер
 cd C:\cabbage\script\parser
 python parser_moex.py
@@ -36,4 +42,8 @@ CREATE TABLE open_interest_history (
 );
 //// Удаление данных из таблицы
 DELETE FROM price_history;
+
+//// Дерево проекта
+cd C:\cabbage
+tree C:\cabbage /F /A
 
