@@ -24,3 +24,5 @@ logs/
 
 # Playwright cache / browsers
 ms-playwright/
+
+build/
