@@ -1,0 +1,39 @@
+/// База данных
+cd C:\sqlite
+.\sqlite3.exe C:\cabbage\data\cabbagedb.db   // Открыть БД
+.schema futures_list                      // Посмотреть структуру БД
+
+/// Сам проект
+cd C:\cabbage
+cd C:\cabbage\db\cabbagedb.db
+cd C:\cabbage\script
+
+/// Парсер
+cd C:\cabbage\script\parser
+python parser_moex.py
+python main.py
+python append_history.py
+
+/// Запуск -------------------------
+cd C:\cabbage
+python -m app.main
+/// --------------------------------
+
+/// Таблицы в БД
+C:\sqlite\cabbagedb.db
+1). futures_list              Список фьючерсов
+2). open_interest_record      Записываем ОИ 
+3). open_interest_history     История записей
+4). price_history             История цен акций
+
+CREATE TABLE open_interest_history (
+	name TEXT,
+	date DATE,
+	private_long INTEGER,
+	private_shorts INTEGER,
+	legal_long INTEGER,
+	legal_shorts INTEGER
+);
+//// Удаление данных из таблицы
+DELETE FROM price_history;
+
