@@ -150,7 +150,7 @@ class TableTab(QWidget):
                     col_idx,
                     QTableWidgetItem(str(value))
                 )
-
+            # --- вычисление коэффициентов ---
             try:
                 private_long = float(row_data[1])
                 private_shorts = float(row_data[2])

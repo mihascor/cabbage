@@ -56,23 +56,19 @@ class InstrumentWindow(QWidget):
         # --- зона под графики (один над другим) ---
         graphs_layout = QVBoxLayout()
 
-        # --- виджеты графиков ---
-        self.price_graph = PriceGraphWidget()
-        self.oi_graph = OiGraphWidget()
+        # Верхний график
+        self.graph_top = QFrame()
+        self.graph_top.setFrameShape(QFrame.Shape.Box)
 
-        graphs_layout.addWidget(self.price_graph, stretch=1)
-        graphs_layout.addWidget(self.oi_graph, stretch=1)
+        # Нижний график
+        self.graph_bottom = QFrame()
+        self.graph_bottom.setFrameShape(QFrame.Shape.Box)
+
+        # заставляем занимать всё пространство
+        graphs_layout.addWidget(self.graph_top, stretch=1)
+        graphs_layout.addWidget(self.graph_bottom, stretch=1)
 
         main_layout.addLayout(graphs_layout, stretch=1)
-
-        # ------------------------------------------------------------
-        # Загрузка данных из repository и передача в графики
-        # ------------------------------------------------------------
-        price_data = get_price_history(self.name)
-        oi_data = get_oi_history(self.name)
-
-        self.price_graph.set_data(price_data)
-        self.oi_graph.set_data(oi_data)
 
     # --- метод для активации окна ---
     def activate(self):

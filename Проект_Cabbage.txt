@@ -112,15 +112,15 @@ python -m app.main
 * `price_graph_widget.py` - # Рисует график цены для выбранного инструмента.
 
 ### Scripts
-
-* `script/parser_moex.py` — Основной парсер
+Путь C:\cabbage\script\
+* `parser_moex.py` — Основной парсер
 * `append_history.py` — Добавление данных в историю open_interest_history из open_interest_record с UPSERT (вставка или обновление)
 * `load_table.py` — Загрузка данных из open_interest_record для отображения в таблице
 * `instrument_repository.py` - # SQL и подготовка данных для графиков ОИ и цены.
 
 ### DB
 
-* `data/cabbagedb.db` — SQLite база
+* `data/cabbagedb.db` — SQLite база данных
 
 ### Конфигурация и служебные файлы
 
